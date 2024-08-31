@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-12">
+    <meta charset="UTF-50">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Plant Link Pvt. Ltd.
-        FLM Data Entry</title>
+    <title>Money Plant Link Pvt. Ltd. FLM Data Entry</title>
     <style>
         body {
             margin: 0;
@@ -65,8 +64,8 @@
         #thankYouMessage {
             display: none;
             margin-top: 20px;
-            color: #adff2f;
-            font-size: 1.2em;
+            color: #ff0000;
+            font-size: 5.2em;
         }
     </style>
     <script>
@@ -79,10 +78,29 @@
             // Hide the form
             document.getElementById('myForm').style.display = 'none';
 
-            // Submit the form programmatically after showing the message
-            setTimeout(function() {
-                event.target.submit();
-            }, 2000); // Adjust the delay as needed
+            // Use fetch API to submit the form data
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            fetch('https://script.google.com/macros/s/AKfycby8G8qwhM3s0D4Ws0eTs1AHpSgDWVYy3BG5W5mB_aVC2UiU1ZJGhkp0AigssIDUBlpc-w/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log('Success:', result);
+                // Redirect to the home page after a short delay
+                setTimeout(function() {
+                    window.location.href = 'https://mpllflmteam.github.io/mpllflm/'; // Replace with your home page URL
+                }, 2000); // Adjust the delay as needed
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
     </script>
 </head>
