@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-50">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Plant Link Pvt. Ltd. 
-        FLM Data Entry</title>
+    <title>Money Plant Link Pvt. Ltd. FLM Data Entry</title>
     <style>
         body {
             margin: 0;
@@ -59,7 +58,7 @@
             color: #fff;
             position: center;
             bottom: 0;
-            width: 75%;
+            width: 70%;
             text-align: center;
         }
         #thankYouMessage {
@@ -67,6 +66,31 @@
             margin-top: 20px;
             color: #ff0000;
             font-size: 3.2em;
+            position: relative;
+        }
+        #thankYouMessage::before {
+            content: '🌹';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3em;
+            opacity: 0;
+            animation: bloom 3s ease-in-out forwards;
+        }
+        @keyframes bloom {
+            0% {
+                transform: translate(-50%, -50%) scale(0.1);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
         }
     </style>
     <script>
@@ -152,7 +176,6 @@
 
     <div id="thankYouMessage">Thank you for your time!</div>
     
-
     <footer>
         <p>Version 2.0 - Powered by Rahimul Islam.
         If you need any information please contact 01976755754</p>
