@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-50">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Plant Link Pvt. Ltd. FLM Data Entry</title>
+    <title>Money Plant Link Pvt. Ltd. 
+        FLM Data Entry</title>
     <style>
         body {
             margin: 0;
@@ -40,11 +41,11 @@
             background-color: #ff6f61;
             border: none;
             color: white;
-            padding: 15px 20px;
+            padding: 10px 15px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 2em;
+            font-size: 1em;
             margin: 10px 0;
             border-radius: 5px;
             cursor: pointer;
@@ -54,9 +55,9 @@
         }
         footer {
             background: #333;
-            padding: 15px;
+            padding: 8px;
             color: #fff;
-            position: fixed;
+            position: center;
             bottom: 0;
             width: 75%;
             text-align: center;
@@ -66,26 +67,6 @@
             margin-top: 20px;
             color: #ff0000;
             font-size: 3.2em;
-        }
-
-        /* Flower animation */
-        #flower {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100px;
-            height: 100px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Rosa_rugosa_flower_-_Keila.jpg/600px-Rosa_rugosa_flower_-_Keila.jpg'); /* Flower image */
-            background-size: cover;
-            background-position: center;
-            animation: spin 2s linear infinite;
-            transform: translate(-50%, -50%);
-        }
-
-        @keyframes spin {
-            from {transform: translate(-50%, -50%) rotate(0deg);}
-            to {transform: translate(-50%, -50%) rotate(360deg);}
         }
     </style>
     <script>
@@ -97,10 +78,6 @@
 
             // Hide the form
             document.getElementById('myForm').style.display = 'none';
-
-            // Show the flower animation
-            const flower = document.getElementById('flower');
-            flower.style.display = 'block';
 
             // Use fetch API to submit the form data
             const formData = new FormData(event.target);
@@ -174,10 +151,11 @@
     </form>
 
     <div id="thankYouMessage">Thank you for your time!</div>
-    <div id="flower"></div>
+    
 
     <footer>
-        <p>Version 2.0 - Powered by Rahimul Islam</p>
+        <p>Version 2.0 - Powered by Rahimul Islam.
+        If you need any information please contact 01976755754</p>
     </footer>
 </body>
 </html>
