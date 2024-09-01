@@ -12,9 +12,20 @@
             color: #333;
             text-align: center;
         }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        header img {
+            width: 100px; /* Adjust the width of the logo */
+            height: auto;
+            margin-right: 20px;
+        }
         h1 {
             color: #12f77a;
-            margin-top: 20px;
+            margin: 0;
         }
         form {
             background: #ffffff;
@@ -135,7 +146,11 @@
     </script>
 </head>
 <body>
-    <h1>FLM Data Entry</h1>
+    <header>
+        <img src="/mnt/data/Money-Plant-link-Pvt.-Limited.jpg" alt="Money Plant Logo">
+        <h1>FLM Data Entry</h1>
+    </header>
+    
     <form id="myForm" method="post" action="https://script.google.com/macros/s/AKfycby8G8qwhM3s0D4Ws0eTs1AHpSgDWVYy3BG5W5mB_aVC2UiU1ZJGhkp0AigssIDUBlpc-w/exec" onsubmit="handleSubmit(event)">
         <label for="Date">Date:</label>
         <input type="text" id="Date" name="Date" required>
