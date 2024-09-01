@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-50">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Plant Link Pvt. Ltd. FLM Data Entry</title>
     <style>
@@ -44,10 +44,6 @@
             border-radius: 5px;
             border: 1px solid #ddd;
             margin-bottom: 10px;
-        }
-        /* Specific style for the 'From' input */
-        #From {
-            font-size: 12px; /* Text size set to 12 pixels */
         }
         button {
             background-color: #ff6f61;
@@ -110,35 +106,53 @@
         function handleSubmit(event) {
             event.preventDefault(); // Prevent the form from submitting the traditional way
             
-            // Show the thank you message
-            document.getElementById('thankYouMessage').style.display = 'block';
+            // Get user's current location
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
 
-            // Hide the form
-            document.getElementById('myForm').style.display = 'none';
+                    // Append location to the remarks
+                    const remarksField = document.getElementById('Remarks');
+                    remarksField.value += `\nLocation: Latitude ${latitude}, Longitude ${longitude}`;
 
-            // Use fetch API to submit the form data
-            const formData = new FormData(event.target);
-            const data = {};
-            formData.forEach((value, key) => data[key] = value);
+                    // Show the thank you message
+                    document.getElementById('thankYouMessage').style.display = 'block';
 
-            fetch('https://script.google.com/macros/s/AKfycby8G8qwhM3s0D4Ws0eTs1AHpSgDWVYy3BG5W5mB_aVC2UiU1ZJGhkp0AigssIDUBlpc-w/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams(data)
-            })
-            .then(response => response.text())
-            .then(result => {
-                console.log('Success:', result);
-                // Redirect to the home page after a short delay
-                setTimeout(function() {
-                    window.location.href = 'https://mpllflmteam.github.io/mpllflm/'; // Replace with your home page URL
-                }, 2000); // Adjust the delay as needed
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+                    // Hide the form
+                    document.getElementById('myForm').style.display = 'none';
+
+                    // Use fetch API to submit the form data
+                    const formData = new FormData(event.target);
+                    const data = {};
+                    formData.forEach((value, key) => data[key] = value);
+
+                    fetch('https://script.google.com/macros/s/AKfycby8G8qwhM3s0D4Ws0eTs1AHpSgDWVYy3BG5W5mB_aVC2UiU1ZJGhkp0AigssIDUBlpc-w/exec', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: new URLSearchParams(data)
+                    })
+                    .then(response => response.text())
+                    .then(result => {
+                        console.log('Success:', result);
+                        // Redirect to the home page after a short delay
+                        setTimeout(function() {
+                            window.location.href = 'https://mpllflmteam.github.io/mpllflm/'; // Replace with your home page URL
+                        }, 2000); // Adjust the delay as needed
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }, error => {
+                    console.error('Error getting location:', error);
+                    // Handle error (e.g., notify user)
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+                // Handle error (e.g., notify user)
+            }
         }
     </script>
 </head>
@@ -194,8 +208,7 @@
     <div id="thankYouMessage">Thank you for your valuable time</div>
     
     <footer>
-        <p>Version 2.0 - Powered by Rahimul Islam.
-        If you need any information please contact 01976755754</p>
+        <p>Version 2.0 - Powered by Rahimul Islam. If you need any information please contact 01976755754</p>
     </footer>
 </body>
 </html>
