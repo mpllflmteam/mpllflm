@@ -12,14 +12,6 @@
             color: #333;
             text-align: center;
         }
-        header {
-            margin-top: 20px;
-        }
-        header img {
-            width: 150px; /* Adjust the width of the logo */
-            height: auto;
-            margin-right: 20px;
-        }
         h1 {
             color: #12f77a;
             margin-top: 20px;
@@ -28,7 +20,7 @@
             background: #ffffff;
             border-radius: 10px;
             padding: 2em;
-            margin: 15px auto;
+            margin: 20px auto;
             max-width: 600px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
@@ -36,7 +28,6 @@
             display: block;
             margin: 10px 0 5px;
             color: #ff6f61;
-            font-size: 18px; /* Label text size set to 18 pixels */
         }
         input[type="text"], textarea {
             width: calc(100% - 20px);
@@ -45,15 +36,11 @@
             border: 1px solid #ddd;
             margin-bottom: 10px;
         }
-        /* Specific style for the 'From' input */
-        #From {
-            font-size: 12px; /* Text size set to 12 pixels */
-        }
         button {
             background-color: #ff6f61;
             border: none;
             color: white;
-            padding: 10px 15px;
+            padding: 15px 20px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -67,11 +54,11 @@
         }
         footer {
             background: #333;
-            padding: 8px;
+            padding: 15px;
             color: #fff;
-            position: center;
+            position: fixed;
             bottom: 0;
-            width: 70%;
+            width: 100%;
             text-align: center;
         }
         #thankYouMessage {
@@ -79,31 +66,6 @@
             margin-top: 20px;
             color: #ff0000;
             font-size: 3.2em;
-            position: relative;
-        }
-        #thankYouMessage::before {
-            content: '🌹';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3em;
-            opacity: 0;
-            animation: bloom 3s ease-in-out forwards;
-        }
-        @keyframes bloom {
-            0% {
-                transform: translate(-50%, -50%) scale(0.1);
-                opacity: 0;
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
         }
     </style>
     <script>
@@ -143,11 +105,7 @@
     </script>
 </head>
 <body>
-    <header>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXbepMX_Wr3Ls3sZu7UgeVzUqh6SucsH5_kg&s" alt="Money Plant Logo">
-    </header>
     <h1>FLM Data Entry</h1>
-
     <form id="myForm" method="post" action="https://script.google.com/macros/s/AKfycby8G8qwhM3s0D4Ws0eTs1AHpSgDWVYy3BG5W5mB_aVC2UiU1ZJGhkp0AigssIDUBlpc-w/exec" onsubmit="handleSubmit(event)">
         <label for="Date">Date:</label>
         <input type="text" id="Date" name="Date" required>
@@ -191,11 +149,10 @@
         <button type="submit">Submit</button>
     </form>
 
-    <div id="thankYouMessage">Thank you for your valuable time</div>
-    
+    <div id="thankYouMessage">Thank you for your time!</div>
+
     <footer>
-        <p>Version 2.0 - Powered by Rahimul Islam.
-        If you need any information please contact 01976755754</p>
+        <p>Version 2.0 - Powered by Rahimul Islam</p>
     </footer>
 </body>
 </html>
