@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-50">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Plant Link Pvt. Ltd. FLM Data Entry</title>
     <style>
@@ -12,6 +13,14 @@
             color: #333;
             text-align: center;
         }
+        header {
+            margin-top: 20px;
+        }
+        header img {
+            width: 150px; /* Adjust the width of the logo */
+            height: auto;
+            margin-right: 20px;
+        }
         h1 {
             color: #12f77a;
             margin-top: 20px;
@@ -20,7 +29,7 @@
             background: #ffffff;
             border-radius: 10px;
             padding: 2em;
-            margin: 20px auto;
+            margin: 15px auto;
             max-width: 600px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
@@ -28,6 +37,7 @@
             display: block;
             margin: 10px 0 5px;
             color: #ff6f61;
+            font-size: 18px; /* Label text size set to 18 pixels */
         }
         input[type="text"], textarea {
             width: calc(100% - 20px);
@@ -40,7 +50,7 @@
             background-color: #ff6f61;
             border: none;
             color: white;
-            padding: 15px 20px;
+            padding: 10px 15px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -54,11 +64,11 @@
         }
         footer {
             background: #333;
-            padding: 15px;
+            padding: 8px;
             color: #fff;
-            position: fixed;
+            position: center;
             bottom: 0;
-            width: 100%;
+            width: 70%;
             text-align: center;
         }
         #thankYouMessage {
@@ -66,46 +76,93 @@
             margin-top: 20px;
             color: #ff0000;
             font-size: 3.2em;
+            position: relative;
+        }
+        #thankYouMessage::before {
+            content: '🌹';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3em;
+            opacity: 0;
+            animation: bloom 3s ease-in-out forwards;
+        }
+        @keyframes bloom {
+            0% {
+                transform: translate(-50%, -50%) scale(0.1);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
         }
     </style>
     <script>
         function handleSubmit(event) {
             event.preventDefault(); // Prevent the form from submitting the traditional way
             
-            // Show the thank you message
-            document.getElementById('thankYouMessage').style.display = 'block';
+            // Get user's current location
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
 
-            // Hide the form
-            document.getElementById('myForm').style.display = 'none';
+                    // Append location to the remarks
+                    const remarksField = document.getElementById('Remarks');
+                    remarksField.value += `\nLocation: Latitude ${latitude}, Longitude ${longitude}`;
 
-            // Use fetch API to submit the form data
-            const formData = new FormData(event.target);
-            const data = {};
-            formData.forEach((value, key) => data[key] = value);
+                    // Show the thank you message
+                    document.getElementById('thankYouMessage').style.display = 'block';
 
-            fetch('https://script.google.com/macros/s/AKfycby8G8qwhM3s0D4Ws0eTs1AHpSgDWVYy3BG5W5mB_aVC2UiU1ZJGhkp0AigssIDUBlpc-w/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams(data)
-            })
-            .then(response => response.text())
-            .then(result => {
-                console.log('Success:', result);
-                // Redirect to the home page after a short delay
-                setTimeout(function() {
-                    window.location.href = 'https://mpllflmteam.github.io/mpllflm/'; // Replace with your home page URL
-                }, 2000); // Adjust the delay as needed
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+                    // Hide the form
+                    document.getElementById('myForm').style.display = 'none';
+
+                    // Use fetch API to submit the form data
+                    const formData = new FormData(event.target);
+                    const data = {};
+                    formData.forEach((value, key) => data[key] = value);
+
+                    fetch('https://script.google.com/macros/s/AKfycby8G8qwhM3s0D4Ws0eTs1AHpSgDWVYy3BG5W5mB_aVC2UiU1ZJGhkp0AigssIDUBlpc-w/exec', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: new URLSearchParams(data)
+                    })
+                    .then(response => response.text())
+                    .then(result => {
+                        console.log('Success:', result);
+                        // Redirect to the home page after a short delay
+                        setTimeout(function() {
+                            window.location.href = 'https://mpllflmteam.github.io/mpllflm/'; // Replace with your home page URL
+                        }, 2000); // Adjust the delay as needed
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }, error => {
+                    console.error('Error getting location:', error);
+                    // Handle error (e.g., notify user)
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+                // Handle error (e.g., notify user)
+            }
         }
     </script>
 </head>
 <body>
+    <header>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXbepMX_Wr3Ls3sZu7UgeVzUqh6SucsH5_kg&s" alt="Money Plant Logo">
+    </header>
     <h1>FLM Data Entry</h1>
+
     <form id="myForm" method="post" action="https://script.google.com/macros/s/AKfycby8G8qwhM3s0D4Ws0eTs1AHpSgDWVYy3BG5W5mB_aVC2UiU1ZJGhkp0AigssIDUBlpc-w/exec" onsubmit="handleSubmit(event)">
         <label for="Date">Date:</label>
         <input type="text" id="Date" name="Date" required>
@@ -149,10 +206,10 @@
         <button type="submit">Submit</button>
     </form>
 
-    <div id="thankYouMessage">Thank you for your time!</div>
-
+    <div id="thankYouMessage">Thank you for your valuable time</div>
+    
     <footer>
-        <p>Version 2.0 - Powered by Rahimul Islam</p>
+        <p>Version 2.0 - Powered by Rahimul Islam. If you need any information please contact 01976755754</p>
     </footer>
 </body>
 </html>
