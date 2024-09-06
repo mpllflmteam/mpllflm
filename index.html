@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Plant Link Pvt. Ltd. FLM Data Entry</title>
     <style>
-        /* Styling same as before */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -47,14 +46,12 @@
             border: 1px solid #ddd;
             margin-bottom: 10px;
         }
-        #From {
-            font-size: 12px;
-        }
         button {
             background-color: #ff6f61;
             border: none;
             color: white;
             padding: 10px 15px;
+            text-align: center;
             font-size: 2em;
             margin: 10px 0;
             border-radius: 5px;
@@ -67,8 +64,6 @@
             background: #333;
             padding: 8px;
             color: #fff;
-            position: center;
-            bottom: 0;
             width: 70%;
             text-align: center;
         }
@@ -78,30 +73,6 @@
             color: #ff0000;
             font-size: 3.2em;
             position: relative;
-        }
-        #thankYouMessage::before {
-            content: '🌹';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3em;
-            opacity: 0;
-            animation: bloom 3s ease-in-out forwards;
-        }
-        @keyframes bloom {
-            0% {
-                transform: translate(-50%, -50%) scale(0.1);
-                opacity: 0;
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
         }
         .button-container {
             margin: 20px;
@@ -122,8 +93,7 @@
     </style>
     <script>
         function handleSubmit(event) {
-            event.preventDefault(); 
-            
+            event.preventDefault();
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     const latitude = position.coords.latitude;
@@ -162,7 +132,7 @@
                 console.log('Success:', result);
                 setTimeout(function() {
                     window.location.href = 'https://mpllflmteam.github.io/mpllflm/';
-                }, 2000); 
+                }, 2000);
             })
             .catch(error => {
                 console.error('Error:', error);
