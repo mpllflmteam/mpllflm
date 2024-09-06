@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,6 +126,32 @@
         function handleSubmit(event) {
             event.preventDefault(); // Prevent the form from submitting the traditional way
             
+            // Geolocation API to get the current location
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    const locationString = `Lat: ${latitude}, Long: ${longitude}`;
+
+                    // Append the location to the Remarks field
+                    const remarksField = document.getElementById('Remarks');
+                    remarksField.value += `\nLocation: ${locationString}`;
+                    
+                    // Proceed with form submission after location is appended
+                    submitForm(event);
+                }, function(error) {
+                    console.error("Error getting location: ", error);
+                    // Proceed with form submission even if location fails
+                    submitForm(event);
+                });
+            } else {
+                // If geolocation is not supported, submit the form without location
+                console.error("Geolocation not supported by this browser.");
+                submitForm(event);
+            }
+        }
+
+        function submitForm(event) {
             // Show the thank you message
             document.getElementById('thankYouMessage').style.display = 'block';
 
