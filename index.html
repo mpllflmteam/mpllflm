@@ -90,6 +90,28 @@
         .button-container button:hover {
             background-color: #0056b3;
         }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+        .modal-content button {
+            margin-top: 10px;
+        }
     </style>
     <script>
         function handleSubmit(event) {
@@ -137,6 +159,26 @@
             .catch(error => {
                 console.error('Error:', error);
             });
+        }
+
+        function showShortageOptions() {
+            document.getElementById('shortageModal').style.display = 'block';
+        }
+
+        function promptPassword(zone) {
+            const password = prompt("Please enter the password:");
+
+            if (zone === 'Dhaka-1' && password === '1036') {
+                window.open('https://1drv.ms/x/c/d47e761307970fab/EasPlwcTdn4ggNSiAAAAAAAB0A_oHB0xq_bNj2RlnNkSkw?e=oTnbek', '_blank');
+            } else if (zone === 'Dhaka-2' && password === '1016') {
+                window.open('https://docs.google.com/spreadsheets/d/1Bl2q0OTTCnNiimtxqB4AOoLs7Xlf4j8HlGVt2zRi9J0/edit?usp=sharing', '_blank');
+            } else {
+                alert("Incorrect password.");
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('shortageModal').style.display = 'none';
         }
     </script>
 </head>
@@ -194,11 +236,21 @@
     <div class="button-container">
         <button onclick="window.open('https://docs.google.com/spreadsheets/d/1FstppDGmBMCmVG5K-owyqD6wl7DKYfFwfCjOC26d-Ag/pubhtml?gid=0&single=true', '_blank')">Show Your Call</button>
         <button onclick="window.open('https://docs.google.com/spreadsheets/d/1Zl8JI8J4TPR3ZOFy3kz-aYIpOOBuQBY8n1hBZ1apm4Y/edit?gid=1995041031#gid=1995041031', '_blank')">Ta Bill Show</button>
+        <button onclick="showShortageOptions()">Show Your Shortage</button>
+    </div>
+
+    <!-- Modal for Shortage options -->
+    <div id="shortageModal" class="modal">
+        <div class="modal-content">
+            <p>Select your zone:</p>
+            <button onclick="promptPassword('Dhaka-1')">Dhaka-1</button>
+            <button onclick="promptPassword('Dhaka-2')">Dhaka-2</button>
+            <button onclick="closeModal()">Close</button>
+        </div>
     </div>
     
     <footer>
-        <p>Version 2.0 - Powered by Rahimul Islam.
-        If you need any information please contact 01976755754</p>
+        <p>Version 2.0 - Powered by Rahimul Islam. If you need any information please contact 01976755754</p>
     </footer>
 </body>
 </html>
