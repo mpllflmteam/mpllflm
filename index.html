@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,6 +113,12 @@
         }
     </style>
     <script>
+        // Automatically set the current date
+        window.onload = function() {
+            const today = new Date().toISOString().substr(0, 10);
+            document.getElementById("Date").value = today;
+        };
+
         function handleSubmit(event) {
             event.preventDefault();
             if (navigator.geolocation) {
