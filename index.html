@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,9 +170,9 @@
             const password = prompt("Please enter the password:");
 
             if (zone === 'Dhaka-1' && password === '1036') {
-                window.open('https://example.com', '_blank');
+                window.open('https://1drv.ms/x/c/d47e761307970fab/EasPlwcTdn4ggNSiAAAAAAAB0A_oHB0xq_bNj2RlnNkSkw?e=oTnbek', '_blank');
             } else if (zone === 'Dhaka-2' && password === '1016') {
-                window.open('https://example.com', '_blank');
+                window.open('https://1drv.ms/x/c/d47e761307970fab/EasPlwcTdn4ggNS0AAAAAAAB3HqwPm-lPHsrf-vVQqQ0vQ?e=p0fv99', '_blank');
             } else {
                 alert("Incorrect password.");
             }
@@ -179,12 +181,6 @@
         function closeModal() {
             document.getElementById('shortageModal').style.display = 'none';
         }
-
-        window.onload = function() {
-            document.getElementById('welcomeAudio').play();
-            var today = new Date().toISOString().split('T')[0];
-            document.getElementById("Date").value = today;
-        };
     </script>
 </head>
 <body>
@@ -257,10 +253,5 @@
     <footer>
         <p>Version 2.0 - Powered by Rahimul Islam. If you need any information please contact 01976755754</p>
     </footer>
-
-    <audio id="welcomeAudio" autoplay>
-        <source src="welcome_message.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
 </body>
 </html>
