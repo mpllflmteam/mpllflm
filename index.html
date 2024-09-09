@@ -121,7 +121,7 @@
 
             // Welcome message on load
             var welcomeMessage = new SpeechSynthesisUtterance("Welcome to Money Plant Link Private Limited.");
-            welcomeMessage.voice = window.speechSynthesis.getVoices().find(voice => voice.name === 'Google UK English Female' || voice.name.includes('Female'));
+            welcomeMessage.voice = window.speechSynthesis.getVoices().find(voice => voice.name === 'Google US English Female' || voice.name.includes('Female'));
             window.speechSynthesis.speak(welcomeMessage);
         };
 
