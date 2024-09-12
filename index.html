@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +51,7 @@
             color: white;
             padding: 10px 15px;
             text-align: center;
-            font-size: 2em;
+            font-size: 1em;
             margin: 10px 0;
             border-radius: 5px;
             cursor: pointer;
@@ -66,13 +65,13 @@
             color: #fff;
             width: 70%;
             text-align: center;
+            margin: 0 auto;
         }
         #thankYouMessage {
             display: none;
             margin-top: 20px;
             color: #ff0000;
-            font-size: 3.2em;
-            position: relative;
+            font-size: 2em;
         }
         .button-container {
             margin: 20px;
@@ -114,111 +113,107 @@
         }
     </style>
     <script>
-        // Map of Job IDs to Executive Names
         const jobIdToName = {
             1024: 'Md. Rokon Uddin',
-            1046: 'Md. Rahimul Islam',
-            1007: 'Md. Syedur Rahman',
-            1017: 'Abdullah-Al-Mamun',
-            1270: 'Palash Roy',
-            1021: 'Md. Rocky Mia',
-            1025: 'Md. Miraj Hossain',
-            1026: 'Md. Kamruzzaman',
-            1165: 'Khalid Hossain Shaikh',
-            1152: 'Md. Ariful Islam-01',
-            1448: 'Md. Alamgir Kabir',
-            1587: 'Abdul Quddus (Jewel)',
-            1789: 'Md. Jahangir Alam',
-            1945: 'Md. Mofijul Islam',
-            1243: 'Md. Al Amin',
-            1659: 'Md. Shajahan Ali',
-            11127: 'Md. Zakir Hossin',
-            11392: 'Fahim Ahmmed',
-            11285: 'Md. Emrul Islam',
-            11358: 'Md. Masruful Islam',
-            11279: 'Abu Shahin',
-            11656: 'Md. Arif Hossain-3',
-            11733: 'Md. Zasim Uddin',
-            11594: 'Bikash Roy',
-            11660: 'Md. Anowarul Islam',
-            11747: 'Md. Rakib Ali',
-            11707: 'SK Ramez Ahmed Rana',
-            11731: 'Md. Arif Hossain-4',
-            11999: 'Hasan Mia',
-            11810: 'Md. Kaysar Ahmed',
-            11815: 'Md. Rabbiul Hasan',
-            12113: 'Md. Miraj Mia-2',
-            12059: 'Md. Nazmul Hassan',
-            12065: 'Shayama Pada Sana',
-            11968: 'Mehedi Hasan Sagor',
-            12071: 'Abdus Salam',
-            12060: 'Atiqur Rahman',
-            12038: 'Md. Sofiqul Islam Bashar',
-            1596: 'Plock Kumer Raha',
-            12057: 'Md. Solaiman Khan',
-            11374: 'MD. RAKIB UDDIN',
-            11245: 'YASIR ARAFAT',
-            1950: 'Meraz Mahmud',
-            11336: 'Md. Asaduzzaman Roni',
-            11843: 'Mynul Islam',
-            1465: 'MD. EMRAN',
-            11719: 'SHUVANKAR BAIRAGI',
-            11790: 'AKTARUL BIN HASAN',
-            11751: 'MD. AL AMIN SARDAR',
-            11364: 'MD. ABU RAYHAN',
-            11655: 'Anwar Hossain',
-            12089: 'Subroto Kuri',
-            11247: 'Md.Jahangir Fokir',
-            12181: 'Md. Rahedul Islam',
-            12183: 'Md. Tanvir Hasan',
-            12182: 'Mirajul Islam',
-            11888: 'MD. AMIR HOSSAIN',
-            12220: 'Kawser Ahmed Fahim',
-            12208: 'Md. Nazmul Islam',
-            2024012232: 'Mehedi Hasan',
-            2024012223: 'Abdul Barik',
-            11816: 'Mosharof Hossain',
-            2024012225: 'Abdur Rahman',
-            2024012231: 'Abdullah Al Sakib',
-            2024012266: 'Md. Rasel',
-            202408012315: 'Sawpan Das'
-            1018: 'Sukanta Bepari'
-            1033: 'Raju Ahmed-1'
-            1043: 'Nasir Uddin (City bank)'
-            1283: 'Md. Piearul Islam'
-            1890: 'Md. Serajul Islam-2'
-            1976: 'Md. Raju Biswas 02'
-            11113: 'Md. Abdullah Al Masum'
-            1240: 'Md. Sazal'
-            11271: 'Md. Mahmudul Hasan'
-            11272: 'Md. Atikur Rahman'
-            11274: 'Md. Ariful Islam-2'
-            11282: 'Md. Saddam Hossain'
-            11283: 'Md. Shahinur Islam'
-            11475: 'Md. Sohanur Rahman'
-            11485: 'Md. Rajuan Islam'
-            11487: 'Md. Tanvir Hussain Emon'
-            11489: 'Md. Sohan Ali'
-            11609: 'Md. Towhid Hossain'
-            11625: 'Md. Ratul'
-            11680: 'Abu Saleh'
-            11740: 'Md. Golam Gaus (City Bank)'
-            11927: 'Mojibur Rahman'
-            12117: 'Md. Nurnobi Hossen'
-            11958: 'Shafiqul Islam'
-            11276: 'Binoy Halder'
-            12009: 'Md. Samsur Rahman'
-            12010: 'Md. Nayon Babu'
-            12142: 'Md. Asadullah Al Masud'
-            12145: 'Md. Azizul Hakim'
-            12146: 'Md. Rafi Hossain Shipon'
-            11783: 'Omor Sharif Khalifa'
-            11765: 'Md. Suzon'
+    1046: 'Md. Rahimul Islam',
+    1007: 'Md. Syedur Rahman',
+    1017: 'Abdullah-Al-Mamun',
+    1270: 'Palash Roy',
+    1021: 'Md. Rocky Mia',
+    1025: 'Md. Miraj Hossain',
+    1026: 'Md. Kamruzzaman',
+    1165: 'Khalid Hossain Shaikh',
+    1152: 'Md. Ariful Islam-01',
+    1448: 'Md. Alamgir Kabir',
+    1587: 'Abdul Quddus (Jewel)',
+    1789: 'Md. Jahangir Alam',
+    1945: 'Md. Mofijul Islam',
+    1243: 'Md. Al Amin',
+    1659: 'Md. Shajahan Ali',
+    11127: 'Md. Zakir Hossin',
+    11392: 'Fahim Ahmmed',
+    11285: 'Md. Emrul Islam',
+    11358: 'Md. Masruful Islam',
+    11279: 'Abu Shahin',
+    11656: 'Md. Arif Hossain-3',
+    11733: 'Md. Zasim Uddin',
+    11594: 'Bikash Roy',
+    11660: 'Md. Anowarul Islam',
+    11747: 'Md. Rakib Ali',
+    11707: 'SK Ramez Ahmed Rana',
+    11731: 'Md. Arif Hossain-4',
+    11999: 'Hasan Mia',
+    11810: 'Md. Kaysar Ahmed',
+    11815: 'Md. Rabbiul Hasan',
+    12113: 'Md. Miraj Mia-2',
+    12059: 'Md. Nazmul Hassan',
+    12065: 'Shayama Pada Sana',
+    11968: 'Mehedi Hasan Sagor',
+    12071: 'Abdus Salam',
+    12060: 'Atiqur Rahman',
+    12038: 'Md. Sofiqul Islam Bashar',
+    1596: 'Plock Kumer Raha',
+    12057: 'Md. Solaiman Khan',
+    11374: 'MD. RAKIB UDDIN',
+    11245: 'YASIR ARAFAT',
+    1950: 'Meraz Mahmud',
+    11336: 'Md. Asaduzzaman Roni',
+    11843: 'Mynul Islam',
+    1465: 'MD. EMRAN',
+    11719: 'SHUVANKAR BAIRAGI',
+    11790: 'AKTARUL BIN HASAN',
+    11751: 'MD. AL AMIN SARDAR',
+    11364: 'MD. ABU RAYHAN',
+    11655: 'Anwar Hossain',
+    12089: 'Subroto Kuri',
+    11247: 'Md.Jahangir Fokir',
+    12181: 'Md. Rahedul Islam',
+    12183: 'Md. Tanvir Hasan',
+    12182: 'Mirajul Islam',
+    11888: 'MD. AMIR HOSSAIN',
+    12220: 'Kawser Ahmed Fahim',
+    12208: 'Md. Nazmul Islam',
+    2024012232: 'Mehedi Hasan',
+    2024012223: 'Abdul Barik',
+    11816: 'Mosharof Hossain',
+    2024012225: 'Abdur Rahman',
+    2024012231: 'Abdullah Al Sakib',
+    2024012266: 'Md. Rasel',
+    202408012315: 'Sawpan Das',
+    1018: 'Sukanta Bepari',
+    1033: 'Raju Ahmed-1',
+    1043: 'Nasir Uddin (City bank)',
+    1283: 'Md. Piearul Islam',
+    1890: 'Md. Serajul Islam-2',
+    1976: 'Md. Raju Biswas 02',
+    11113: 'Md. Abdullah Al Masum',
+    1240: 'Md. Sazal',
+    11271: 'Md. Mahmudul Hasan',
+    11272: 'Md. Atikur Rahman',
+    11274: 'Md. Ariful Islam-2',
+    11282: 'Md. Saddam Hossain',
+    11283: 'Md. Shahinur Islam',
+    11475: 'Md. Sohanur Rahman',
+    11485: 'Md. Rajuan Islam',
+    11487: 'Md. Tanvir Hussain Emon',
+    11489: 'Md. Sohan Ali',
+    11609: 'Md. Towhid Hossain',
+    11625: 'Md. Ratul',
+    11680: 'Abu Saleh',
+    11740: 'Md. Golam Gaus (City Bank)',
+    11927: 'Mojibur Rahman',
+    12117: 'Md. Nurnobi Hossen',
+    11958: 'Shafiqul Islam',
+    11276: 'Binoy Halder',
+    12009: 'Md. Samsur Rahman',
+    12010: 'Md. Nayon Babu',
+    12142: 'Md. Asadullah Al Masud',
+    12145: 'Md. Azizul Hakim',
+    12146: 'Md. Rafi Hossain Shipon',
+    11783: 'Omor Sharif Khalifa',
+    11765: 'Md. Suzon'
+};
 
-            // Add additional job IDs and names here
-        };
-
-        // Automatically set the current date
         window.onload = function() {
             const today = new Date().toISOString().substr(0, 10);
             document.getElementById("Date").value = today;
@@ -328,63 +323,33 @@
             <option value="">Select an option</option>
             <option value="Cash Jam">Cash Jam</option>
             <option value="Receive Paper">Receive Paper</option>
-            <option value="Down">Down</option>
-            <option value="Eng. Call">Eng. Call</option>
-            <option value="Fast Load">Fast Load</option>
-            <option value="Last Load">Last Load</option>
-            <option value="Return">Return</option>
-            <option value="Manual Cash Jam">Manual Cash Jam</option>
-            <option value="Other’s">Other’s</option>
-        </select>
-        
-        <label for="Time">Time:</label>
-        <input type="text" id="Time" name="Time" required>
-                
-        <label for="From">From:</label>
-        <input type="text" id="From" name="From" required>
-        
-        <label for="To">To:</label>
-        <input type="text" id="To" name="To" required>
-        
-        <label for="Transport">Transport:</label>
-        <input type="text" id="Transport" name="Transport" required>
-
-        <label for="TravellingAmount">Travelling Amount:</label>
-        <input type="text" id="TravellingAmount" name="TravellingAmount" required>
-
-        <label for="Person">How many people's bills?:</label>
-        <select id="Person" name="Person" required>
-            <option value="">Select an option</option>
-            <option value="1 Person">1 Person</option>
-            <option value="2 Person">2 Person</option>
+            <option value="Cash End">Cash End</option>
         </select>
 
+        <label for="Amount">Amount:</label>
+        <input type="text" id="Amount" name="Amount" required>
+        
         <label for="Remarks">Remarks:</label>
-        <textarea id="Remarks" name="Remarks" required></textarea>
-        
-        <button type="submit">Submit</button>
+        <textarea id="Remarks" name="Remarks" rows="4"></textarea>
+
+        <div class="button-container">
+            <button type="button" onclick="showShortageOptions()">Shortage</button>
+            <button type="submit">Submit</button>
+        </div>
     </form>
 
-    <div id="thankYouMessage">Thank you for your valuable time</div>
-    
-    <div class="button-container">
-        <button onclick="window.open('https://docs.google.com/spreadsheets/d/1FstppDGmBMCmVG5K-owyqD6wl7DKYfFwfCjOC26d-Ag/pubhtml?gid=0&single=true', '_blank')">Show Your Call</button>
-        <button onclick="window.open('https://docs.google.com/spreadsheets/d/1Zl8JI8J4TPR3ZOFy3kz-aYIpOOBuQBY8n1hBZ1apm4Y/edit?gid=1995041031#gid=1995041031', '_blank')">Ta Bill Show</button>
-        <button onclick="showShortageOptions()">Show Your Shortage</button>
-    </div>
+    <div id="thankYouMessage">Thank You!</div>
 
-    <!-- Modal for Shortage options -->
+    <footer>Money Plant Link Pvt. Ltd. © 2023</footer>
+
+    <!-- Shortage Modal -->
     <div id="shortageModal" class="modal">
         <div class="modal-content">
-            <p>Select your zone:</p>
+            <h2>Select Your Zone</h2>
             <button onclick="promptPassword('Dhaka-1')">Dhaka-1</button>
             <button onclick="promptPassword('Dhaka-2')">Dhaka-2</button>
             <button onclick="closeModal()">Close</button>
         </div>
     </div>
-    
-    <footer>
-        <p>Version 2.0 - Powered by Rahimul Islam. If you need any information please contact 01976755754</p>
-    </footer>
 </body>
 </html>
