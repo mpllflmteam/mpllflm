@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,8 +116,7 @@
     <script>
         // Map of Job IDs to Executive Names
         const jobIdToName = {
-            // Existing job IDs...
-           1024: 'Md. Rokon Uddin',
+            1024: 'Md. Rokon Uddin',
             1046: 'Md. Rahimul Islam',
             1007: 'Md. Syedur Rahman',
             1017: 'Abdullah-Al-Mamun',
@@ -182,47 +182,10 @@
             2024012231: 'Abdullah Al Sakib',
             2024012266: 'Md. Rasel',
             202408012315: 'Sawpan Das'
-            1018: 'Sukanta Bepari'
-            1033: 'Raju Ahmed-1'
-            1043: 'Nasir Uddin (City bank)'
-            1283: 'Md. Piearul Islam'
-            1890: 'Md. Serajul Islam-2'
-            1976: 'Md. Raju Biswas 02'
-            11113: 'Md. Abdullah Al Masum'
-            1240: 'Md. Sazal'
-            11271: 'Md. Mahmudul Hasan'
-            11272: 'Md. Atikur Rahman'
-            11274: 'Md. Ariful Islam-2'
-            11282: 'Md. Saddam Hossain'
-            11283: 'Md. Shahinur Islam'
-            11475: 'Md. Sohanur Rahman'
-            11485: 'Md. Rajuan Islam'
-            11487: 'Md. Tanvir Hussain Emon'
-            11489: 'Md. Sohan Ali'
-            11609: 'Md. Towhid Hossain'
-            11625: 'Md. Ratul'
-            11680: 'Abu Saleh'
-            11740: 'Md. Golam Gaus (City Bank)'
-            11927: 'Mojibur Rahman'
-            12117: 'Md. Nurnobi Hossen'
-            11958: 'Shafiqul Islam'
-            11276: 'Binoy Halder'
-            12009: 'Md. Samsur Rahman'
-            12010: 'Md. Nayon Babu'
-            12142: 'Md. Asadullah Al Masud'
-            12145: 'Md. Azizul Hakim'
-            12146: 'Md. Rafi Hossain Shipon'
-            11783: 'Omor Sharif Khalifa'
-            11765: 'Md. Suzon'
-            // Add all job IDs and names here...
+            // Add additional job IDs and names here
         };
 
-        // Map of Persons to Remarks (simulate Google Sheets data)
-        const personToRemarks = {
-            "1 Person Bill": "Remarks for 1 Person Bill",
-            "2 Person Bill": "Remarks for 2 Person Bill",
-        };
-
+        // Automatically set the current date
         window.onload = function() {
             const today = new Date().toISOString().substr(0, 10);
             document.getElementById("Date").value = today;
@@ -300,13 +263,6 @@
             const executiveName = jobIdToName[jobId] || '';
             document.getElementById('ExecutiveName').value = executiveName;
         }
-
-        function updateRemarks() {
-            const selectedPerson = document.getElementById('Person').value;
-            const remarksField = document.getElementById('Remarks');
-            const remarks = personToRemarks[selectedPerson] || '';
-            remarksField.value = remarks;
-        }
     </script>
 </head>
 <body>
@@ -364,10 +320,10 @@
         <input type="text" id="TravellingAmount" name="TravellingAmount" required>
 
         <label for="Person">How many people's bills?:</label>
-        <select id="Person" name="Person" required onchange="updateRemarks()">
+        <select id="Person" name="Person" required>
             <option value="">Select an option</option>
-            <option value="1 Person Bill">1 Person Bill</option>
-            <option value="2 Person Bill">2 Person Bill</option>
+            <option value="1 Person">1 Person</option>
+            <option value="2 Person">2 Person</option>
         </select>
 
         <label for="Remarks">Remarks:</label>
