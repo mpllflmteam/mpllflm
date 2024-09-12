@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +39,7 @@
             color: #ff6f61;
             font-size: 18px;
         }
-        input[type="text"], input[type="date"], textarea {
+        input[type="text"], input[type="date"], textarea, select {
             width: calc(100% - 20px);
             padding: 10px;
             border-radius: 5px;
@@ -113,6 +114,77 @@
         }
     </style>
     <script>
+        // Map of Job IDs to Executive Names
+        const jobIdToName = {
+            1024: 'Md. Rokon Uddin',
+            1046: 'Md. Rahimul Islam',
+            1007: 'Md. Syedur Rahman',
+            1017: 'Abdullah-Al-Mamun',
+            1270: 'Palash Roy',
+            1021: 'Md. Rocky Mia',
+            1025: 'Md. Miraj Hossain',
+            1026: 'Md. Kamruzzaman',
+            1165: 'Khalid Hossain Shaikh',
+            1152: 'Md. Ariful Islam-01',
+            1448: 'Md. Alamgir Kabir',
+            1587: 'Abdul Quddus (Jewel)',
+            1789: 'Md. Jahangir Alam',
+            1945: 'Md. Mofijul Islam',
+            1243: 'Md. Al Amin',
+            1659: 'Md. Shajahan Ali',
+            11127: 'Md. Zakir Hossin',
+            11392: 'Fahim Ahmmed',
+            11285: 'Md. Emrul Islam',
+            11358: 'Md. Masruful Islam',
+            11279: 'Abu Shahin',
+            11656: 'Md. Arif Hossain-3',
+            11733: 'Md. Zasim Uddin',
+            11594: 'Bikash Roy',
+            11660: 'Md. Anowarul Islam',
+            11747: 'Md. Rakib Ali',
+            11707: 'SK Ramez Ahmed Rana',
+            11731: 'Md. Arif Hossain-4',
+            11999: 'Hasan Mia',
+            11810: 'Md. Kaysar Ahmed',
+            11815: 'Md. Rabbiul Hasan',
+            12113: 'Md. Miraj Mia-2',
+            12059: 'Md. Nazmul Hassan',
+            12065: 'Shayama Pada Sana',
+            11968: 'Mehedi Hasan Sagor',
+            12071: 'Abdus Salam',
+            12060: 'Atiqur Rahman',
+            12038: 'Md. Sofiqul Islam Bashar',
+            1596: 'Plock Kumer Raha',
+            12057: 'Md. Solaiman Khan',
+            11374: 'MD. RAKIB UDDIN',
+            11245: 'YASIR ARAFAT',
+            1950: 'Meraz Mahmud',
+            11336: 'Md. Asaduzzaman Roni',
+            11843: 'Mynul Islam',
+            1465: 'MD. EMRAN',
+            11719: 'SHUVANKAR BAIRAGI',
+            11790: 'AKTARUL BIN HASAN',
+            11751: 'MD. AL AMIN SARDAR',
+            11364: 'MD. ABU RAYHAN',
+            11655: 'Anwar Hossain',
+            12089: 'Subroto Kuri',
+            11247: 'Jahingir Fokir',
+            12181: 'Md. Rahedul Islam',
+            12183: 'Md. Tanvir Hasan',
+            12182: 'Mirajul Islam',
+            11888: 'MD. AMIR HOSSAIN',
+            12220: 'Kawser Ahmed Fahim',
+            12208: 'Md. Nazmul Islam',
+            2024012232: 'Mehedi Hasan',
+            2024012223: 'Abdul Barik',
+            11816: 'Mosharof Hossain',
+            2024012225: 'Abdur Rahman',
+            2024012231: 'Abdullah Al Sakib',
+            2024012266: 'Md. Rasel',
+            202408012315: 'Sawpan Das'
+            // Add additional job IDs and names here
+        };
+
         // Automatically set the current date
         window.onload = function() {
             const today = new Date().toISOString().substr(0, 10);
@@ -185,6 +257,12 @@
         function closeModal() {
             document.getElementById('shortageModal').style.display = 'none';
         }
+
+        function updateExecutiveName() {
+            const jobId = document.getElementById('JobID').value;
+            const executiveName = jobIdToName[jobId] || '';
+            document.getElementById('ExecutiveName').value = executiveName;
+        }
     </script>
 </head>
 <body>
@@ -200,12 +278,12 @@
         <label for="Zone">Zone:</label>
         <input type="text" id="Zone" name="Zone" required>
         
-        <label for="ExecutiveName">Executive Name:</label>
-        <input type="text" id="ExecutiveName" name="ExecutiveName" required>
-        
         <label for="JobID">Job ID:</label>
-        <input type="text" id="JobID" name="JobID" required>
-        
+        <input type="text" id="JobID" name="JobID" required oninput="updateExecutiveName()">
+
+        <label for="ExecutiveName">Executive Name:</label>
+        <input type="text" id="ExecutiveName" name="ExecutiveName" required readonly>
+                
         <label for="ATMCRMID">ATM/CRM ID:</label>
         <input type="text" id="ATMCRMID" name="ATMCRMID" required>
         
@@ -213,7 +291,18 @@
         <input type="text" id="ATMLOCATION" name="ATMLOCATION" required>
         
         <label for="TypeOfCall">Type Of Call:</label>
-        <input type="text" id="TypeOfCall" name="TypeOfCall" required>
+        <select id="TypeOfCall" name="TypeOfCall" required>
+            <option value="">Select an option</option>
+            <option value="Cash Jam">Cash Jam</option>
+            <option value="Receive Paper">Receive Paper</option>
+            <option value="Down">Down</option>
+            <option value="Eng. Call">Eng. Call</option>
+            <option value="Fast Load">Fast Load</option>
+            <option value="Last Load">Last Load</option>
+            <option value="Return">Return</option>
+            <option value="Manual Cash Jam">Manual Cash Jam</option>
+            <option value="Other’s">Other’s</option>
+        </select>
         
         <label for="Time">Time:</label>
         <input type="text" id="Time" name="Time" required>
