@@ -2423,7 +2423,7 @@
             const zone = jobIdToZone[jobId] || '';
 
             if (executiveName === '' || zone === '') {
-                document.getElementById('EmployeeIDError').textContent = "Invalid Employee ID entered.";
+                document.getElementById('EmployeeIDError').textContent = "এখানে Employee ID এন্ট্রি দেওয়ার সময় সামনের 0 বাদ দিয়ে দিতে হবে। উদাহরনঃ যদি Employee ID 01046 হয় তবে 1046 এন্ট্রি দিতে হবে।.";
             } else {
                 document.getElementById('EmployeeIDError').textContent = "";
             }
