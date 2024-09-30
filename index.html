@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -253,7 +254,41 @@
     <div id="thankYouMessage">Thank you for your valuable time</div>
 
     <div class="button-container">
-        <button onclick="window.open('https://docs.google.com/spreadsheets/d/1FstppDGmBMCmVG5K-owyqD6wl7DKYfFwfCjOC26d-Ag/pubhtml?gid=0&single=true', '_blank')">Show Your Call</button>
+       <!-- Button to open the modal -->
+<button onclick="showCallModal()">Show Your Call</button>
+
+<!-- Modal for Show Your Call options -->
+<div id="callModal" class="modal">
+    <div class="modal-content">
+        <p>Select your zone:</p>
+        <button onclick="openCall('Dhaka-1')">Dhaka-1</button>
+        <button onclick="openCall('Dhaka-2')">Dhaka-2</button>
+        <button onclick="closeCallModal()">Close</button>
+    </div>
+</div>
+
+<script>
+// Function to show the "Show Your Call" modal
+function showCallModal() {
+    document.getElementById('callModal').style.display = 'block';
+}
+
+// Function to open the call spreadsheet link based on zone selection
+function openCall(zone) {
+    if (zone === 'Dhaka-1') {
+        window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1vQQ1xUgju54dAdR02J9h7FnHVI-oyyBtW1ciuySBde4bAu20xV2i-yv-EjoXtvc8JanDlDpa9sL2xHG/pubhtml?gid=0&single=true', '_blank');
+    } else if (zone === 'Dhaka-2') {
+        window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1vSgJVLzmOnZw9NThCEw4XA-clymV_NLRlKOPNNCTsiJeZjW5AG4FPS4NKpg5yVmxqUjxVcWuHnba6il/pubhtml?gid=0&single=true', '_blank');
+    }
+    closeCallModal();
+}
+
+// Function to close the modal
+function closeCallModal() {
+    document.getElementById('callModal').style.display = 'none';
+}
+</script>
+
         <button onclick="window.open('https://docs.google.com/spreadsheets/d/1Zl8JI8J4TPR3ZOFy3kz-aYIpOOBuQBY8n1hBZ1apm4Y/edit?gid=1995041031#gid=1995041031', '_blank')">Ta Bill Show</button>
         <button onclick="showShortageOptions()">Show Your Shortage</button>
     </div>
