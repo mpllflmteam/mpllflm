@@ -125,6 +125,53 @@
             font-size: 1em;
             margin-top: 5px;
         }
+        /* নতুন বাটনের জন্য স্টাইল */
+        .office-use-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .office-use-btn:hover {
+            background-color: #218838;
+        }
+        .office-use-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .office-use-modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+        .office-use-modal-content button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .office-use-modal-content button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
     </style>
 </head>
 <body>
@@ -220,6 +267,40 @@
             <button onclick="closeModal()">Close</button>
         </div>
     </div>
+     <!-- নতুন Office Use বাটন -->
+    <div class="button-container">
+        <button class="office-use-btn" onclick="showOfficeUseModal()">Office Use</button>
+    </div>
+
+    <!-- Modal for Office Use options -->
+    <div id="officeUseModal" class="office-use-modal">
+        <div class="office-use-modal-content">
+            <p>Select an option:</p>
+            <button onclick="window.open('https://docs.google.com/spreadsheets/d/1_uL-3fAO3dnYRKmmmIgDRuD3-1MSrD7u79YOQBAVh7E/edit?usp=sharing', '_blank')">Dhaka-1 Call Entry</button>
+            <button onclick="window.open('https://docs.google.com/spreadsheets/d/10qaUSslUNAMHjVmjfsF2NCYRC0ZCG61DI3j95dnz4xY/edit?usp=sharing', '_blank')">Dhaka-2 Call Entry</button>
+            <button onclick="window.open('https://docs.google.com/spreadsheets/d/1iaLddIrCsyUvFrW_-JnXOsMriXIAqANNLfhWNVGGkiM/edit?gid=0#gid=0', '_blank')">TA Bill Check</button>
+            <button onclick="closeOfficeUseModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Office Use মডাল দেখানোর ফাংশন
+        function showOfficeUseModal() {
+            const password = prompt("Please enter the password:");
+            if (password === 'mpll321') {
+                document.getElementById('officeUseModal').style.display = 'block';
+            } else {
+                alert("Incorrect password.");
+            }
+        }
+
+        // Office Use মডাল বন্ধ করার ফাংশন
+        function closeOfficeUseModal() {
+            document.getElementById('officeUseModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
 
     <footer>
         <p>Version 2.0 - Powered by Rahimul Islam. If you need any information please contact 01976755754,
