@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,15 +172,43 @@
             background-color: #0056b3;
         }
     </style>
-</head>
-<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Test</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            margin-top: 20px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .bounce {
+            animation: bounce 1s infinite alternate;
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXbepMX_Wr3Ls3sZu7UgeVzUqh6SucsH5_kg&s" alt="Money Plant Logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXbepMX_Wr3Ls3sZu7UgeVzUqh6SucsH5_kg&s" alt="Money Plant Logo" class="bounce">
     </header>
-    <h1>Money Plant Link Pvt. Ltd. 
+    <h1>Money Plant Link Pvt. Ltd.</h1>
+</body>
+</html>
+
+    <h1> 
         FLM Call & Traveling Bill Management System</h1>
     <form id="myForm" method="post" action="https://script.google.com/macros/s/AKfycby8G8qwhM3s0D4Ws0eTs1AHpSgDWVYy3BG5W5mB_aVC2UiU1ZJGhkp0AigssIDUBlpc-w/exec" onsubmit="handleSubmit(event)">
         <label for="Date">Date:</label>
