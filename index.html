@@ -6,46 +6,122 @@
     <title>Money Plant Link Pvt. Ltd. FLM Call & Traveling Bill Management System</title>
     <meta name="google-adsense-account" content="ca-pub-7325944573928464">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #074fa7, #fad0c4);
-            color: #333;
-            text-align: center;
-        }
-        header {
-            margin-top: 20px;
-        }
-        header img {
-            width: 150px;
-            height: auto;
-            margin-right: 20px;
-        }
-        h1 {
-            color: #12f77a;
-            margin-top: 20px;
-        }
-        form {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 2em;
-            margin: 15px auto;
-            max-width: 600px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            color: #03ca21;
-            font-size: 18px;
-        }
-        input[type="text"], input[type="date"], textarea, select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-        }
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #074fa7, #fad0c4);
+    color: #333;
+    text-align: center;
+    padding: 20px; /* Improved spacing on mobile */
+}
+
+/* Form Styles */
+form {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 2em;
+    margin: 20px auto;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for modern look */
+    transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Hover effect for form */
+}
+
+/* Label Styles */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #03ca21;
+    font-size: 18px;
+    font-weight: bold; /* Improved readability */
+}
+
+/* Input, Select, and Textarea Styles */
+input[type="text"], input[type="date"], input[type="time"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus Styles */
+input:focus, select:focus, textarea:focus {
+    border-color: #03ca21;
+    box-shadow: 0 0 5px rgba(3, 202, 33, 0.2);
+    outline: none;
+}
+
+/* Button Styles */
+button {
+    background-color: #03ca21;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #028d16;
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    form {
+        padding: 1.5em;
+    }
+
+    button {
+        font-size: 1.5em;
+        padding: 10px 16px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input[type="text"], input[type="date"], input[type="time"], textarea, select {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    form {
+        padding: 1.2em;
+    }
+
+    button {
+        font-size: 1.2em;
+        padding: 8px 14px;
+    }
+
+    input[type="text"], input[type="date"], input[type="time"], textarea, select {
+        font-size: 13px;
+    }
+}
+
         button {
     background-color: #6f42c1; /* Purple color */
     color: white; /* Text color */
