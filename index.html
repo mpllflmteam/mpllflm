@@ -10,100 +10,152 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #2c3e50, #4ca1af); /* Modern gradient background 
+    background: linear-gradient(to right, #1e3c72, #2a5298); /* Gradient background */
+    color: #ffffff; /* White text for contrast */
+    text-align: center;
     padding: 20px;
+}
+
+/* Header Styles */
+header {
+    margin-top: 20px;
+}
+
+header img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite; /* Bounce animation for logo */
+}
+
+/* Heading Styles */
+h1 {
+    color: #f1c40f; /* Bright yellow for the heading */
+    margin-top: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Form Styles */
 form {
-    background: #ffffff;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white for a modern look */
+    border-radius: 15px;
     padding: 2em;
     margin: 20px auto;
     max-width: 600px;
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for modern look */
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition for hover effect */
 }
 
 form:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Hover effect for form */
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
 /* Label Styles */
 label {
     display: block;
     margin: 10px 0 5px;
-    color: #03ca21;
+    color: #1abc9c; /* Soft teal for labels */
     font-size: 18px;
-    font-weight: bold; /* Improved readability */
+    font-weight: bold;
 }
 
 /* Input, Select, and Textarea Styles */
-input[type="text"], input[type="date"], input[type="time"], textarea, select {
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
     width: 100%;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; /* Light gray border */
     margin-bottom: 15px;
     font-size: 16px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Focus Styles */
-input:focus, select:focus, textarea:focus {
-    border-color: #03ca21;
-    box-shadow: 0 0 5px rgba(3, 202, 33, 0.2);
-    outline: none;
+/* Pulse Animation for Empty Fields */
+input:placeholder-shown,
+textarea:placeholder-shown,
+select:placeholder-shown {
+    animation: pulse 1.5s infinite; /* Continuous pulse animation for empty fields */
+    border-color: #e74c3c; /* Red border to indicate empty fields */
+}
+
+/* Keyframes for Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Input Focus Styles */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #1abc9c; /* Teal border on focus */
+    box-shadow: 0 0 5px rgba(26, 188, 156, 0.5); /* Teal glow effect */
+    outline: none; /* Remove default outline */
 }
 
 /* Button Styles */
 button {
-    background-color: #03ca21;
-    color: white;
-    padding: 12px 20px;
+    background-color: #1abc9c; /* Teal button color */
+    color: #ffffff; /* White text */
+    padding: 12px 24px;
     border-radius: 25px;
     border: none;
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for button */
 }
 
 button:hover {
-    background-color: #028d16;
-    transform: translateY(-2px); /* Slight lift effect on hover */
+    background-color: #16a085; /* Darker teal on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
 }
 
 /* Responsive Media Queries */
 @media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
     form {
         padding: 1.5em;
-    }
-
-    button {
-        font-size: 1.5em;
-        padding: 10px 16px;
-    }
-
-    h1 {
-        font-size: 1.5em;
     }
 
     label {
         font-size: 16px;
     }
 
-    input[type="text"], input[type="date"], input[type="time"], textarea, select {
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    textarea,
+    select {
         font-size: 14px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 16px;
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 
     form {
@@ -111,12 +163,18 @@ button:hover {
     }
 
     button {
-        font-size: 1.2em;
+        font-size: 14px;
         padding: 8px 14px;
     }
+}
 
-    input[type="text"], input[type="date"], input[type="time"], textarea, select {
-        font-size: 13px;
+/* Bounce Animation for Image */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
     }
 }
 
