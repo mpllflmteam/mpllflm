@@ -2736,7 +2736,9 @@ function closeCallModal() {
             const bangladeshTimeOffset = 6 * 60 * 60 * 1000;  // বাংলাদেশ UTC+6
             const localDate = new Date(today.getTime() + bangladeshTimeOffset);
             const formattedDate = localDate.toISOString().split('T')[0];
-            document.getElementById("Date").value = formattedDate;
+            const dateField = document.getElementById("Date");
+            dateField.value = formattedDate;
+            dateField.readOnly = true;  // ডেট ফিল্ড রিড-অনলি করা হয়েছে
         };
 
         // ফাংশন Employee ID এর ভিত্তিতে Executive Name এবং Zone আপডেট করার জন্য
