@@ -2869,5 +2869,60 @@ function closeCallModal() {
             document.getElementById('shortageModal').style.display = 'none';
         }
     </script>
+<div class="popup-text">
+  <ul>
+    <li><a href="#" target="_self">
+      আসসালামু আলাইকুম। প্রিয় কাস্টোডিয়ান, আপনার প্রতিটি কল পাবার ২ ঘন্টার মধ্যে কাজ করে অফিসে আপডেট দেবার জন্য বিশেষ ভাবে অনুরোধ জানানো যাচ্ছে। তা না হলে সেই কলের AMCPV (যেই টাকা ডাচ বাংলা ব্যাংক কেঁটে নেয়) তার দায়ভার আপনাকে বহন করতে হবে।
+    </a></li>
+  </ul>
+</div>
+
+<style>
+  .popup-text {
+    position: fixed;
+    top: 20px; /* Distance from the top */
+    left: 75%;
+    transform: translateX(-50%); /* Center horizontally */
+    width: auto;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Drop shadow for popup effect */
+    opacity: 0; /* Initially invisible */
+    z-index: 1000; /* Keep it on top of other content */
+    animation: popup-animation 10s ease-in-out infinite; /* Popup effect with zoom */
+  }
+
+  .popup-text a {
+    color: #ffffff; /* Yellow text color */
+    text-decoration: none; /* Removes underline from links */
+  }
+
+  .popup-text ul:hover {
+    animation-play-state: paused; /* Pause on hover */
+  }
+
+  @keyframes popup-animation {
+    0% {
+      transform: translateX(-50%) scale(0.5); /* Small and hidden */
+      opacity: 0; /* Transparent */
+    }
+    10% {
+      transform: translateX(-50%) scale(1); /* Zoom to full size */
+      opacity: 1; /* Fully visible */
+    }
+    80% {
+      transform: translateX(-50%) scale(1); /* Stay full size for some time */
+      opacity: 1; /* Fully visible */
+    }
+    100% {
+      transform: translateX(-50%) scale(0.5); /* Shrink and disappear */
+      opacity: 0; /* Transparent */
+    }
+  }
+</style>
 </body>
 </html>
