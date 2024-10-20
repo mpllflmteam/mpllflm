@@ -338,19 +338,30 @@ button:active {
     padding: 20px;
     text-align: left;
     color: #333;
-    transition: opacity 1s ease; /* Smooth transition for hiding */
+    transition: opacity 1s ease;
 }
 
-.notice-board h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #d9534f;
+/* For devices with a max-width of 768px (Tablets & Phones) */
+@media (max-width: 768px) {
+    .notice-board {
+        position: relative;
+        width: 90%; /* Adjust width to fit smaller screens */
+        left: auto; /* Remove left positioning */
+        margin: 20px auto; /* Center the notice board */
+        top: 20px; /* Adjust top margin */
+    }
 }
 
-.notice-board p {
-    font-size: 1em;
-    color: #333;
+/* For devices with a max-width of 480px (Phones) */
+@media (max-width: 480px) {
+    .notice-board {
+        width: 95%; /* Make it even more flexible */
+        font-size: 14px; /* Slightly smaller font size for mobile */
+        padding: 15px; /* Adjust padding for mobile */
+        top: 10px; /* Bring it closer to the top */
+    }
 }
+
     </style>
 <div class="notice-board" id="noticeBoard">
     <h2>নোটিশ বোর্ড</h2>
