@@ -326,40 +326,49 @@ button:active {
         .office-use-modal-content button:hover {
             background-color: #0056b3;
         }
-/* Notice Board Styles - Now Positioned at the Bottom */
+/* Notice Board Styles - Positioned at the Bottom */
 .notice-board {
-    position: fixed; /* Fixes the board at the bottom */
-    bottom: 10px; /* Adjust this value to control the distance from the bottom */
-    left: 50%; /* Centers the notice board horizontally */
-    transform: translateX(-50%); /* Ensures perfect centering */
-    width: 90%; /* Width adjusted to fit most screens */
-    background-color: rgba(255, 255, 255, 0.9); /* Light background for readability */
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
     text-align: left;
-    color: #333;
     transition: opacity 1s ease;
-    z-index: 1000; /* Ensures it stays on top of other elements */
+    z-index: 1000;
+}
+
+/* Text color for the notice title and content */
+.notice-board h2 {
+    color: red; /* Heading color changed to red */
+}
+
+.notice-board p {
+    color: black; /* Paragraph text color also red */
 }
 
 /* For devices with a max-width of 768px (Tablets & Phones) */
 @media (max-width: 768px) {
     .notice-board {
-        width: 95%; /* Make it even more flexible on smaller screens */
-        bottom: 5px; /* Adjust bottom distance for smaller screens */
+        width: 95%;
+        bottom: 5px;
     }
 }
 
 /* For devices with a max-width of 480px (Phones) */
 @media (max-width: 480px) {
     .notice-board {
-        width: 95%; /* Fit more comfortably on smaller screens */
-        font-size: 14px; /* Slightly smaller font size for mobile */
-        padding: 15px; /* Adjust padding for mobile */
-        bottom: 0; /* Align to the very bottom for phones */
+        width: 95%;
+        font-size: 14px;
+        padding: 15px;
+        bottom: 0;
     }
 }
+
 
     </style>
 <div class="notice-board" id="noticeBoard">
