@@ -326,36 +326,46 @@ button:active {
         .office-use-modal-content button:hover {
             background-color: #0056b3;
         }
-      /* Notice Board Styles */
+/* Notice Board Styles */
 .notice-board {
-    position: absolute; /* Sidebar stays in one place */
-    top: 100px; /* Adjust based on your design */
-    left: 10px; /* Adjust distance from the left */
+    position: absolute;
+    top: 100px;
+    left: 10px;
     width: 250px;
-    background-color: rgba(255, 255, 255, 0.9); /* Light background for readability */
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
     text-align: left;
     color: #333;
+    transition: opacity 1s ease; /* Smooth transition for hiding */
 }
 
 .notice-board h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: #d9534f; /* Red color for notice title */
+    color: #d9534f;
 }
 
 .notice-board p {
     font-size: 1em;
     color: #333;
 }
-
     </style>
-<div class="notice-board">
+<div class="notice-board" id="noticeBoard">
     <h2>নোটিশ বোর্ড</h2>
-    <p>আজ আমাদের ঢাকা-২ জোনের  উত্তরা জোন  ছাড়া , সকল এটিএম এবং সিআরএম অফলোড করে লোড হবে।   লোড অফলোড করার সময় ভালো করে চেক করে করবেন যেন এটিএম এবং সিআরএম কোন টাকা না থেকে।  এছাড়া বাঘের বাজার , সালনা,চৌরাস্তা-২ এবং কলেজ গেট পাসওয়ার্ড পরিবর্তন হবে।  সকলকে সঠিক ভাবে সাবধানে কাজ করার জন্য অনুরোধ জানানো যাচ্ছে। ।</p>
+    <p>আজ আমাদের ঢাকা-২ জোনের  উত্তরা জোন  ছাড়া , সকল এটিএম এবং সিআরএম অফলোড করে লোড হবে।   লোড অফলোড করার সময় ভালো করে চেক করে করবেন যেন এটিএম এবং সিআরএম কোন টাকা না থেকে।  এছাড়া বাঘের বাজার , সালনা,চৌরাস্তা-২ এবং কলেজ গেট পাসওয়ার্ড পরিবর্তন হবে।  সকলকে সঠিক ভাবে সাবধানে কাজ করার জন্য অনুরোধ জানানো যাচ্ছে।</p>
 </div>
+
+<script>
+// 9 সেকেন্ড পরে নোটিশ বোর্ড হাইড করার জন্য ফাংশন
+setTimeout(function() {
+    var noticeBoard = document.getElementById("noticeBoard");
+    if (noticeBoard) {
+        noticeBoard.style.display = "none";
+    }
+}, 9000); // 9000 মিলিসেকেন্ড = 9 সেকেন্ড
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
