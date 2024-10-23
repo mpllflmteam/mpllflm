@@ -326,65 +326,52 @@ button:active {
         .office-use-modal-content button:hover {
             background-color: #0056b3;
         }
-/* Notice Board Styles - Positioned at the Bottom */
-.notice-board {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    text-align: left;
-    transition: opacity 1s ease;
-    z-index: 1000;
-}
+/* Marquee Section */
+        .marquee-container {
+            position: fixed; /* Position at the bottom */
+            bottom: 0; /* Align to the bottom */
+            left: 0; /* Align to the left */
+            width: 100%; /* Full width */
+            background-color: #fff; /* Background for the marquee */
+            padding: 10px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            overflow: hidden; /* Hide overflow */
+        }
 
-/* Text color for the notice title and content */
-.notice-board h2 {
-    color: red; /* Heading color changed to red */
-}
+        .marquee {
+            display: inline-block; /* Allow inline movement */
+            animation: scroll 20s linear infinite; /* Animation for scrolling */
+            color: #ff6347; /* Tomato color for the text */
+            font-size: 1.5em; /* Size of the marquee text */
+        }
 
-.notice-board p {
-    color: black; /* Paragraph text color also red */
-}
+        /* Keyframes for the scrolling effect */
+        @keyframes scroll {
+            from {
+                transform: translateX(100%); /* Start from right */
+            }
+            to {
+                transform: translateX(-100%); /* Move to left */
+            }
+        }
 
-/* For devices with a max-width of 768px (Tablets & Phones) */
-@media (max-width: 768px) {
-    .notice-board {
-        width: 95%;
-        bottom: 5px;
-    }
-}
-
-/* For devices with a max-width of 480px (Phones) */
-@media (max-width: 480px) {
-    .notice-board {
-        width: 95%;
-        font-size: 14px;
-        padding: 15px;
-        bottom: 0;
-    }
-}
-
-
+        footer {
+            background: #333;
+            padding: 8px;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+        }
     </style>
-<div class="notice-board" id="noticeBoard">
-    <h2>নোটিশ বোর্ড</h2>
-    <p>সকল কাস্টোডিয়ান এর দৃষ্টি আকর্ষণ করছি, আপনাদের কাছে চাবি হ্যান্ডওভার এর একটি ফরম্যাট দেয়া আছে।  সেটাতে সিগনেচার করে অবশই আগামীকাল অফিসে পাঠাবেন। ধন্যবাদ </p>
-</div>
+</head>
+<body>
+    <!-- Marquee Section -->
+    <div class="marquee-container">
+        <div class="marquee">
+            সকল কাস্টোডিয়ান এর দৃষ্টি আকর্ষণ করছি, আপনাদের কাছে চাবি হ্যান্ডওভার এর একটি ফরম্যাট দেয়া আছে। সেটাতে সিগনেচার করে অবশই আগামীকাল অফিসে পাঠাবেন। ধন্যবাদ।
+        </div>
+    </div>
 
-<script>
-// 9 সেকেন্ড পরে নোটিশ বোর্ড হাইড করার জন্য ফাংশন
-setTimeout(function() {
-    var noticeBoard = document.getElementById("noticeBoard");
-    if (noticeBoard) {
-        noticeBoard.style.display = "none";
-    }
-}, 15000); // 9000 মিলিসেকেন্ড = 9 সেকেন্ড
-</script>
 
 <!DOCTYPE html>
 <html lang="en">
