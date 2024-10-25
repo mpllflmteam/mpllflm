@@ -371,14 +371,60 @@ button:active {
             }
         }
 
-        footer {
-            background: #333;
-            padding: 8px;
-            color: #fff;
-            width: 100%;
-            text-align: center;
-            z-index: 1; /* Ensure footer is below the marquee */
-        }
+footer {
+    background-color: #1a1a1a; /* ডার্ক ব্যাকগ্রাউন্ড */
+    color: #e0e0e0; /* লাইট গ্রে টেক্সট */
+    padding: 30px 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+footer a {
+    color: #76c7c0; /* টিল কালার লিংক */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffd700; /* হোভার এ লিংক কালার গোল্ড */
+}
+
+footer .social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+footer .social-icons a {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+footer .social-icons a:hover {
+    background-color: #76c7c0; /* সোশ্যাল আইকনে টিল হোভার কালার */
+    transform: scale(1.1); /* সামান্য বড় দেখানোর জন্য */
+}
+
     </style>
 </head>
 <body>
